@@ -1,6 +1,6 @@
-# [Project name]
+# DOR NER Resilience Command Center
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Operational command center for simulating, predicting, and responding to logistics disruptions across India's North Eastern Region.
 
 ## Run & Operate
 
@@ -22,23 +22,31 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/dor-ner/src/App.tsx` — responsive command center shell, routes, simulation UI, and operational views
+- `artifacts/dor-ner/src/index.css` — DOR NER visual system and responsive styles
+- `artifacts/api-server/src/lib/dor-data.ts` — deterministic simulated NER operational state and resilience calculations
+- `artifacts/api-server/src/routes/dor.ts` — validated dashboard, operations, simulation, and mission endpoints
+- `lib/api-spec/openapi.yaml` — source of truth for the generated API client and Zod contracts
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first prototype uses a deterministic in-memory simulation provider so the end-to-end decision chain remains demonstrable without external data feeds.
+- OpenAPI is the single API contract; generated React Query hooks are used by the frontend for all operational reads and mutations.
+- Simulation state is shared across dashboard, map, fleet, supply, route, incident, alert, and mission surfaces so actions visibly feed back into the command center.
+- Every synthetic operational value is surfaced in a DEMO / SIMULATION DATA context.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+DOR NER provides a regional command center, map-based risk intelligence, route comparison, fleet tracking, supply risk monitoring, incident command, actionable alerts, emergency mission creation, field mode, analytics, multilingual-ready settings, and a one-click Manipur rainfall disruption demonstration.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+No additional project-specific preferences recorded.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The web artifact's Vite config requires `PORT` and `BASE_PATH`; managed workflows provide them. Direct builds need `PORT=5173 BASE_PATH=/ pnpm --filter @workspace/dor-ner run build`.
+- After changing `lib/api-spec/openapi.yaml`, regenerate the client with `pnpm --filter @workspace/api-spec run codegen`.
 
 ## Pointers
 

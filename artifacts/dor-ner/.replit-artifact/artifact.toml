@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "DOR NER Resilience Command Center"
+description = "A serious regional logistics and disaster-resilience command center for the North Eastern Region of India. It monitors simulated roads, vehicles, weather, incidents, supplies, and disruptions, then turns those signals into transparent route, fleet, and emergency decisions for authorities and field teams."
+version = "1.0.0"
+id = "artifacts/dor-ner"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18925
+
+[services.development]
+run = "pnpm --filter @workspace/dor-ner run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/dor-ner", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/dor-ner/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18925"
+BASE_PATH = "/"

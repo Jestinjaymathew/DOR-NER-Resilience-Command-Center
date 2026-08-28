@@ -3,20 +3,21 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: DOR NER operational resilience API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
-    description: Health operations
+  - name: command-center
+  - name: operations
+  - name: simulation
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,13 +25,522 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /dashboard:
+    get:
+      operationId: getDashboard
+      tags: [command-center]
+      summary: Get regional command center snapshot
+      responses:
+        "200":
+          description: Current operational snapshot
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dashboard"
+  /districts:
+    get:
+      operationId: listDistricts
+      tags: [command-center]
+      summary: List NER district intelligence
+      responses:
+        "200":
+          description: Districts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/District"
+  /vehicles:
+    get:
+      operationId: listVehicles
+      tags: [operations]
+      summary: List fleet vehicles
+      responses:
+        "200":
+          description: Fleet
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Vehicle"
+  /deliveries:
+    get:
+      operationId: listDeliveries
+      tags: [operations]
+      summary: List deliveries
+      responses:
+        "200":
+          description: Deliveries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Delivery"
+  /incidents:
+    get:
+      operationId: listIncidents
+      tags: [operations]
+      summary: List active incidents
+      responses:
+        "200":
+          description: Incidents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Incident"
+    post:
+      operationId: createIncident
+      tags: [operations]
+      summary: Create a field incident report
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IncidentInput"
+      responses:
+        "201":
+          description: Incident created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Incident"
+  /alerts:
+    get:
+      operationId: listAlerts
+      tags: [operations]
+      summary: List actionable alerts
+      responses:
+        "200":
+          description: Alerts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Alert"
+  /alerts/{id}/action:
+    post:
+      operationId: actionAlert
+      tags: [operations]
+      summary: Apply an action to an alert
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AlertActionInput"
+      responses:
+        "200":
+          description: Updated alert
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Alert"
+  /route-options:
+    post:
+      operationId: calculateRoutes
+      tags: [operations]
+      summary: Calculate transparent route options
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RouteInput"
+      responses:
+        "200":
+          description: Route options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RouteOption"
+  /missions:
+    post:
+      operationId: createMission
+      tags: [operations]
+      summary: Create an emergency mission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MissionInput"
+      responses:
+        "201":
+          description: Mission created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Mission"
+  /analytics:
+    get:
+      operationId: getAnalytics
+      tags: [command-center]
+      summary: Get operational analytics
+      parameters:
+        - in: query
+          name: range
+          schema:
+            type: string
+            enum: [7d, 30d, 90d]
+            default: 30d
+      responses:
+        "200":
+          description: Analytics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Analytics"
+  /simulation/disruption:
+    post:
+      operationId: simulateDisruption
+      tags: [simulation]
+      summary: Simulate heavy rainfall disruption in Manipur
+      responses:
+        "200":
+          description: Updated simulation state and impact
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimulationResult"
+  /simulation/reset:
+    post:
+      operationId: resetSimulation
+      tags: [simulation]
+      summary: Reset simulation to baseline
+      responses:
+        "200":
+          description: Baseline simulation state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dashboard"
 components:
+  parameters:
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   schemas:
     HealthStatus:
       type: object
       properties:
         status:
           type: string
-      required:
-        - status
-
+      required: [status]
+    Dashboard:
+      type: object
+      required: [mode, updatedAt, kpis, map, predictions, supplyRisks, activity, impact]
+      properties:
+        mode: { type: string, enum: [baseline, disruption] }
+        updatedAt: { type: string }
+        kpis: { $ref: "#/components/schemas/Kpis" }
+        map: { $ref: "#/components/schemas/MapState" }
+        predictions:
+          type: array
+          items: { $ref: "#/components/schemas/Prediction" }
+        supplyRisks:
+          type: array
+          items: { $ref: "#/components/schemas/SupplyRisk" }
+        activity:
+          type: array
+          items: { $ref: "#/components/schemas/Activity" }
+        impact: { $ref: "#/components/schemas/Impact" }
+    Kpis:
+      type: object
+      required: [accessibility, activeVehicles, deliveries, criticalDeliveries, riskCorridors, incidents, predictions, averageDelay]
+      properties:
+        accessibility: { type: number }
+        activeVehicles: { type: number }
+        deliveries: { type: number }
+        criticalDeliveries: { type: number }
+        riskCorridors: { type: number }
+        incidents: { type: number }
+        predictions: { type: number }
+        averageDelay: { type: number }
+    MapState:
+      type: object
+      required: [states, corridors, vehicles, incidents, hubs]
+      properties:
+        states:
+          type: array
+          items: { $ref: "#/components/schemas/MapStateNode" }
+        corridors:
+          type: array
+          items: { $ref: "#/components/schemas/Corridor" }
+        vehicles:
+          type: array
+          items: { $ref: "#/components/schemas/MapVehicle" }
+        incidents:
+          type: array
+          items: { $ref: "#/components/schemas/MapIncident" }
+        hubs:
+          type: array
+          items: { $ref: "#/components/schemas/MapHub" }
+    MapStateNode:
+      type: object
+      required: [name, shortName, x, y, accessibility, status]
+      properties:
+        name: { type: string }
+        shortName: { type: string }
+        x: { type: number }
+        y: { type: number }
+        accessibility: { type: number }
+        status: { type: string, enum: [stable, watch, restricted, critical] }
+    Corridor:
+      type: object
+      required: [id, name, points, status, accessibility, risk]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        points:
+          type: array
+          items:
+            type: array
+            items: { type: number }
+        status: { type: string, enum: [open, watch, high-risk, blocked] }
+        accessibility: { type: number }
+        risk: { type: number }
+    MapVehicle:
+      type: object
+      required: [id, x, y, status, cargo]
+      properties:
+        id: { type: string }
+        x: { type: number }
+        y: { type: number }
+        status: { type: string }
+        cargo: { type: string }
+    MapIncident:
+      type: object
+      required: [id, x, y, type, severity]
+      properties:
+        id: { type: string }
+        x: { type: number }
+        y: { type: number }
+        type: { type: string }
+        severity: { type: string }
+    MapHub:
+      type: object
+      required: [name, x, y, stockLevel]
+      properties:
+        name: { type: string }
+        x: { type: number }
+        y: { type: number }
+        stockLevel: { type: number }
+    Prediction:
+      type: object
+      required: [id, title, corridor, probability, confidence, window, factors, impact, recommendation, alternative, level]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        corridor: { type: string }
+        probability: { type: number }
+        confidence: { type: number }
+        window: { type: string }
+        factors:
+          type: array
+          items: { type: string }
+        impact: { type: string }
+        recommendation: { type: string }
+        alternative: { type: string }
+        level: { type: string, enum: [low, moderate, high, critical] }
+    SupplyRisk:
+      type: object
+      required: [district, item, daysRemaining, incomingEta, roadRisk, risk, recommendation]
+      properties:
+        district: { type: string }
+        item: { type: string }
+        daysRemaining: { type: number }
+        incomingEta: { type: string }
+        roadRisk: { type: string }
+        risk: { type: string }
+        recommendation: { type: string }
+    Activity:
+      type: object
+      required: [id, time, title, detail, tone]
+      properties:
+        id: { type: string }
+        time: { type: string }
+        title: { type: string }
+        detail: { type: string }
+        tone: { type: string }
+    Impact:
+      type: object
+      required: [deliveriesProtected, vehiclesRerouted, riskAvoided, delayAvoided, responseTime]
+      properties:
+        deliveriesProtected: { type: number }
+        vehiclesRerouted: { type: number }
+        riskAvoided: { type: string }
+        delayAvoided: { type: string }
+        responseTime: { type: string }
+    District:
+      type: object
+      required: [id, name, state, population, accessibility, daysOfSupply, activeIncidents, weather, risk, criticalNeeds]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        state: { type: string }
+        population: { type: number }
+        accessibility: { type: number }
+        daysOfSupply: { type: number }
+        activeIncidents: { type: number }
+        weather: { type: string }
+        risk: { type: string }
+        criticalNeeds:
+          type: array
+          items: { type: string }
+    Vehicle:
+      type: object
+      required: [id, type, cargo, capacity, driver, origin, destination, speed, eta, fuel, priority, risk, status]
+      properties:
+        id: { type: string }
+        type: { type: string }
+        cargo: { type: string }
+        capacity: { type: number }
+        driver: { type: string }
+        origin: { type: string }
+        destination: { type: string }
+        speed: { type: number }
+        eta: { type: string }
+        fuel: { type: number }
+        priority: { type: string }
+        risk: { type: string }
+        status: { type: string }
+    Delivery:
+      type: object
+      required: [id, cargo, quantity, origin, destination, eta, priority, status, risk]
+      properties:
+        id: { type: string }
+        cargo: { type: string }
+        quantity: { type: number }
+        origin: { type: string }
+        destination: { type: string }
+        eta: { type: string }
+        priority: { type: string }
+        status: { type: string }
+        risk: { type: string }
+    Incident:
+      type: object
+      required: [id, type, district, road, severity, status, timestamp, description]
+      properties:
+        id: { type: string }
+        type: { type: string }
+        district: { type: string }
+        road: { type: string }
+        severity: { type: string }
+        status: { type: string }
+        timestamp: { type: string }
+        description: { type: string }
+    IncidentInput:
+      type: object
+      required: [type, district, road, severity, description]
+      properties:
+        type: { type: string }
+        district: { type: string }
+        road: { type: string }
+        severity: { type: string }
+        description: { type: string }
+    Alert:
+      type: object
+      required: [id, title, message, severity, status, createdAt, actions]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        message: { type: string }
+        severity: { type: string }
+        status: { type: string }
+        createdAt: { type: string }
+        actions:
+          type: array
+          items: { type: string }
+    AlertActionInput:
+      type: object
+      required: [action]
+      properties:
+        action: { type: string, enum: [acknowledge, assign, escalate, resolve] }
+    RouteInput:
+      type: object
+      required: [origin, destination, cargo, quantity, priority, vehicleType]
+      properties:
+        origin: { type: string }
+        destination: { type: string }
+        cargo: { type: string }
+        quantity: { type: number }
+        priority: { type: string }
+        vehicleType: { type: string }
+    RouteOption:
+      type: object
+      required: [id, name, recommended, distance, eta, weatherRisk, landslideRisk, floodRisk, traffic, accessibility, fuel, overallRisk, score, explanation]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        recommended: { type: boolean }
+        distance: { type: string }
+        eta: { type: string }
+        weatherRisk: { type: number }
+        landslideRisk: { type: number }
+        floodRisk: { type: number }
+        traffic: { type: string }
+        accessibility: { type: number }
+        fuel: { type: string }
+        overallRisk: { type: string }
+        score: { type: number }
+        explanation:
+          type: array
+          items: { type: string }
+    MissionInput:
+      type: object
+      required: [mission, destination, cargo, quantity, deadline, priority]
+      properties:
+        mission: { type: string }
+        destination: { type: string }
+        cargo: { type: string }
+        quantity: { type: number }
+        deadline: { type: string }
+        priority: { type: string }
+    Mission:
+      type: object
+      required: [id, mission, destination, vehicle, route, backupRoute, eta, risk, status]
+      properties:
+        id: { type: string }
+        mission: { type: string }
+        destination: { type: string }
+        vehicle: { type: string }
+        route: { type: string }
+        backupRoute: { type: string }
+        eta: { type: string }
+        risk: { type: string }
+        status: { type: string }
+    Analytics:
+      type: object
+      required: [deliverySuccess, averageDelay, routeReliability, shortages, incidents, utilization, accessibility, responseTime]
+      properties:
+        deliverySuccess: { type: number }
+        averageDelay: { type: number }
+        routeReliability: { type: number }
+        shortages: { type: number }
+        incidents: { type: number }
+        utilization: { type: number }
+        accessibility: { type: number }
+        responseTime: { type: number }
+    SimulationResult:
+      type: object
+      required: [dashboard, chain, headline]
+      properties:
+        dashboard: { $ref: "#/components/schemas/Dashboard" }
+        chain:
+          type: array
+          items: { type: string }
+        headline: { type: string }

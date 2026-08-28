@@ -1,0 +1,1614 @@
+You are not building a demo website.
+
+You are building a serious, intelligent, deployable software prototype for Smart India Hackathon 2026.
+
+Your role is simultaneously:
+
+• Principal Product Architect
+• Senior Full-Stack Engineer
+• AI/ML Engineer
+• GIS Engineer
+• Logistics Optimization Engineer
+• UX/UI Designer
+• Disaster Management Systems Engineer
+• Data Engineer
+• Cybersecurity Engineer
+• SIH Hackathon Strategy Lead
+
+Your job is to build an outstanding, fully functional application from the specification below.
+
+============================================================
+PROJECT
+============================================================
+
+NAME:
+
+DOR NER
+
+FULL NAME:
+
+Dynamic Operations & Resilience
+North Eastern Region
+
+TAGLINE:
+
+"Predict disruption. Protect supplies. Move smarter."
+
+PROBLEM STATEMENT:
+
+SIH26002
+
+AI-Based Smart Logistics and Accessibility Intelligence Platform
+for North Eastern Region (NER)
+
+ORGANIZATION:
+
+Ministry of Development of North Eastern Region (MDoNER)
+
+THEME:
+
+Smart Automation
+
+CATEGORY:
+
+Software
+
+============================================================
+1. THE REAL PURPOSE
+============================================================
+
+The North Eastern Region of India faces:
+
+• difficult terrain
+• extreme weather
+• landslides
+• floods
+• damaged roads
+• bridge failures
+• poor connectivity
+• limited transport infrastructure
+• logistics delays
+• supply shortages
+• weak-network areas
+
+Essential goods such as:
+
+• medicines
+• food
+• agricultural products
+• construction materials
+• emergency supplies
+
+can be delayed or stranded.
+
+DOR NER must act as an intelligent regional logistics command system.
+
+The system should:
+
+MONITOR
+→ roads, vehicles, weather, incidents and supplies
+
+PREDICT
+→ disruptions before they happen
+
+UNDERSTAND
+→ what will be affected
+
+OPTIMIZE
+→ routes, vehicles and deliveries
+
+AUTOMATE
+→ alerts, prioritization and response workflows
+
+RESPOND
+→ during emergencies
+
+LEARN
+→ from historical incidents and outcomes
+
+============================================================
+2. DO NOT BUILD A GENERIC DASHBOARD
+============================================================
+
+This is extremely important.
+
+Do NOT create:
+
+• a normal logistics dashboard
+• a generic AI chatbot
+• a collection of charts
+• fake AI scores
+• meaningless animations
+• a static map
+• dummy buttons
+• "coming soon" sections
+
+Every major feature must perform an actual function.
+
+The central principle is:
+
+DATA
+↓
+INTELLIGENCE
+↓
+PREDICTION
+↓
+DECISION
+↓
+AUTOMATION
+↓
+ACTION
+↓
+FEEDBACK
+
+============================================================
+3. THE CORE INNOVATION
+============================================================
+
+Create a central intelligence layer called:
+
+DOR RESILIENCE ENGINE
+
+This is the heart of the application.
+
+It continuously asks:
+
+1. What is happening?
+2. What is likely to happen?
+3. What will be affected?
+4. Which supplies are at risk?
+5. Which vehicles are affected?
+6. What is the safest route?
+7. What should authorities do now?
+8. What happens if we choose another action?
+
+Every recommendation must explain:
+
+WHAT
+WHY
+CONFIDENCE
+IMPACT
+RECOMMENDED ACTION
+ALTERNATIVE ACTION
+
+============================================================
+4. THE SIGNATURE AUTOMATED CHAIN
+============================================================
+
+Build this workflow as a real connected system.
+
+Example:
+
+WEATHER CHANGES
+↓
+AI detects increasing rainfall
+↓
+Disruption probability increases
+↓
+High-risk corridor identified
+↓
+Affected districts identified
+↓
+Affected vehicles identified
+↓
+Critical deliveries identified
+↓
+Alternative routes calculated
+↓
+Best route selected
+↓
+Best available vehicle selected
+↓
+ETA recalculated
+↓
+Alert generated
+↓
+Authority notified
+↓
+Field officer receives task
+↓
+Field officer uploads evidence
+↓
+Incident confirmed
+↓
+Regional map updates
+↓
+Delivery continues
+↓
+Incident resolved
+
+This entire chain must be demonstrable.
+
+============================================================
+5. THE "WOW" FEATURE
+============================================================
+
+Create:
+
+ONE-CLICK DISASTER SIMULATION
+
+Button:
+
+"SIMULATE REGIONAL DISRUPTION"
+
+When clicked, simulate a severe weather event.
+
+Example:
+
+Heavy rainfall begins across Manipur.
+
+The system should automatically:
+
+• increase rainfall
+• increase landslide probability
+• identify vulnerable roads
+• mark affected routes
+• identify affected vehicles
+• identify critical deliveries
+• calculate supply risk
+• generate alternative routes
+• reassign vehicles
+• update ETAs
+• generate alerts
+• create an emergency mission
+• update the regional command center
+
+The UI should visibly react.
+
+The judge should be able to understand the entire solution in under 90 seconds.
+
+============================================================
+6. JUDGE DEMO MODE
+============================================================
+
+Create a dedicated:
+
+JUDGE DEMO
+
+button.
+
+When activated, launch a polished guided scenario.
+
+STEP 1:
+
+Regional map is normal.
+
+STEP 2:
+
+Weather deteriorates.
+
+STEP 3:
+
+AI predicts disruption.
+
+STEP 4:
+
+Risk corridor turns red.
+
+STEP 5:
+
+Affected vehicles appear.
+
+STEP 6:
+
+Critical medicine shipment becomes endangered.
+
+STEP 7:
+
+DOR recommends an alternate route.
+
+STEP 8:
+
+DOR selects the optimal vehicle.
+
+STEP 9:
+
+Emergency mission is created.
+
+STEP 10:
+
+Field officer reports actual landslide.
+
+STEP 11:
+
+System updates route and risk.
+
+STEP 12:
+
+Delivery is protected.
+
+Final screen:
+
+"CRISIS CONTAINED"
+
+Show demo metrics:
+
+• deliveries protected
+• vehicles rerouted
+• risk avoided
+• estimated delay avoided
+• response time
+
+IMPORTANT:
+
+All simulated metrics must clearly say:
+
+"DEMO / SIMULATION DATA"
+
+Never represent simulated results as real-world measurements.
+
+============================================================
+7. VISUAL DESIGN
+============================================================
+
+The application must look exceptional.
+
+Design inspiration:
+
+• national emergency operations center
+• aviation operations center
+• professional GIS platform
+• modern logistics command center
+
+NOT:
+
+• gaming UI
+• cyberpunk
+• neon
+• generic startup dashboard
+• excessive glassmorphism
+• excessive gradients
+
+Use:
+
+deep navy
+charcoal
+white
+muted teal
+green
+amber
+red
+
+Use colors primarily to communicate status.
+
+Typography:
+
+Inter.
+
+Design principles:
+
+• information hierarchy
+• clean spacing
+• readable typography
+• subtle borders
+• restrained shadows
+• meaningful animation
+• excellent mobile responsiveness
+
+The interface must feel trustworthy enough for government officials.
+
+============================================================
+8. GLOBAL LAYOUT
+============================================================
+
+Desktop:
+
+LEFT SIDEBAR
+
+Logo:
+DOR
+
+Navigation:
+
+Overview
+Live Map
+Route Intelligence
+Fleet
+Supply Network
+Incidents
+Predictions
+Emergency Mode
+Field Mode
+Analytics
+Alerts
+Settings
+
+Top bar:
+
+LIVE
+Network status
+Last sync
+Alerts
+Language
+User
+Emergency Mode
+
+Mobile:
+
+Use a bottom navigation bar for primary actions.
+
+============================================================
+9. OVERVIEW COMMAND CENTER
+============================================================
+
+Create an exceptional regional command center.
+
+Top KPI cards:
+
+REGIONAL ACCESSIBILITY
+ACTIVE VEHICLES
+DELIVERIES IN TRANSIT
+CRITICAL DELIVERIES
+HIGH-RISK CORRIDORS
+ACTIVE INCIDENTS
+PREDICTED DISRUPTIONS
+AVERAGE DELAY
+
+Every KPI should be interactive.
+
+Main component:
+
+FULL-SCREEN INTERACTIVE NER MAP.
+
+Show:
+
+Assam
+Meghalaya
+Manipur
+Mizoram
+Nagaland
+Tripura
+Arunachal Pradesh
+Sikkim
+
+Use realistic geographic coordinates.
+
+Map layers:
+
+• roads
+• accessibility
+• rainfall
+• weather
+• flood risk
+• landslide risk
+• traffic
+• vehicles
+• incidents
+• supply hubs
+• emergency corridors
+
+============================================================
+10. MAP INTERACTION
+============================================================
+
+Click district:
+
+Open district intelligence.
+
+Show:
+
+Population
+Accessibility
+Current supply
+Days of supply remaining
+Active incidents
+Weather
+Risk
+Incoming deliveries
+Critical needs
+
+Click road:
+
+Show:
+
+Road condition
+Accessibility
+Risk
+Traffic
+Weather
+Historical disruptions
+Current incidents
+Predicted disruption
+Recommended action
+
+Click vehicle:
+
+Show:
+
+Vehicle ID
+Cargo
+Capacity
+Driver
+Origin
+Destination
+Current location
+Speed
+ETA
+Fuel
+Priority
+Risk
+Status
+
+============================================================
+11. ROUTE INTELLIGENCE
+============================================================
+
+Build a real route decision interface.
+
+Inputs:
+
+Origin
+Destination
+Cargo
+Quantity
+Priority
+Vehicle type
+Departure time
+
+Generate:
+
+FASTEST ROUTE
+
+SAFEST ROUTE
+
+LOWEST RISK ROUTE
+
+Each route must show:
+
+Distance
+ETA
+Weather risk
+Landslide risk
+Flood risk
+Traffic
+Road accessibility
+Fuel estimate
+Overall risk
+
+Create a transparent route score.
+
+Concept:
+
+Score =
+travel time
++
+risk
++
+disruption probability
++
+weather
++
+traffic
++
+cargo urgency
+
+The system should explain why the route was selected.
+
+Example:
+
+RECOMMENDED
+
+Why?
+
+• 92% road accessibility
+• low flood risk
+• low landslide probability
+• 21% less disruption probability
+• only 18 minutes slower than fastest route
+
+============================================================
+12. WHAT-IF ROUTE SIMULATOR
+============================================================
+
+Create:
+
+"What happens if..."
+
+Scenarios:
+
+• road closure
+• bridge closure
+• landslide
+• flood
+• heavy rainfall
+• traffic congestion
+• vehicle breakdown
+• multiple road closures
+
+User selects scenario.
+
+System recalculates the network.
+
+Show:
+
+BEFORE
+
+and
+
+AFTER
+
+Compare:
+
+Routes
+Vehicles
+ETAs
+Supply risk
+District accessibility
+Delivery success
+
+============================================================
+13. DISRUPTION PREDICTION
+============================================================
+
+Create an AI prediction module.
+
+Input factors:
+
+• rainfall
+• weather
+• terrain
+• slope
+• road condition
+• historical incidents
+• traffic
+• field reports
+• season
+• bridge condition
+
+Output:
+
+Disruption probability
+Risk level
+Predicted time window
+Affected route
+Cause
+Confidence
+Recommended action
+
+Example:
+
+LANDSLIDE RISK
+
+82%
+
+Confidence:
+
+87%
+
+Window:
+
+Next 6 hours
+
+Factors:
+
+Rainfall
+Terrain
+Historical incidents
+Recent field report
+
+Recommendation:
+
+Reroute critical deliveries.
+
+Until real ML data is available:
+
+Use a clearly labeled simulation/prediction engine.
+
+Structure the code so a real ML model can replace it.
+
+============================================================
+14. SUPPLY INTELLIGENCE
+============================================================
+
+Create a supply network.
+
+Track:
+
+Medicines
+Food
+Construction Materials
+Agricultural Produce
+Emergency Goods
+
+For each district:
+
+Current stock
+Daily demand
+Days remaining
+Incoming supply
+ETA
+Supply risk
+
+Create:
+
+SUPPLY RISK SCORE
+
+Example:
+
+IMPHAL EAST
+
+Medicine:
+
+2.1 days remaining
+
+Incoming:
+
+8 hours
+
+Road risk:
+
+HIGH
+
+Supply risk:
+
+CRITICAL
+
+Recommendation:
+
+Prioritize medicine delivery.
+
+============================================================
+15. SMART PRIORITIZATION
+============================================================
+
+When multiple shipments compete for limited resources:
+
+calculate priority using:
+
+• medical urgency
+• population affected
+• stock remaining
+• distance
+• road risk
+• disaster severity
+• deadline
+
+Output:
+
+PRIORITY 1
+PRIORITY 2
+PRIORITY 3
+
+Explain the ranking.
+
+============================================================
+16. FLEET INTELLIGENCE
+============================================================
+
+Build fleet management.
+
+Track:
+
+Vehicle ID
+Vehicle type
+Cargo
+Capacity
+Driver
+GPS
+Speed
+ETA
+Fuel
+Route
+Risk
+Status
+
+Statuses:
+
+Moving
+Delayed
+Rerouting
+Emergency
+Stopped
+Offline
+
+Vehicles should visibly move on the map during simulation.
+
+============================================================
+17. AUTOMATIC VEHICLE ALLOCATION
+============================================================
+
+Create an intelligent vehicle assignment engine.
+
+For emergency delivery:
+
+find the best vehicle based on:
+
+• distance
+• capacity
+• cargo compatibility
+• current route
+• fuel
+• driver availability
+• road risk
+• delivery priority
+
+Return:
+
+BEST VEHICLE
+
+Example:
+
+NER-014
+
+14 km from pickup
+
+82% capacity
+
+Low-risk route
+
+Emergency improvement:
+
+41 minutes
+
+Allow:
+
+ACCEPT & DISPATCH
+
+When accepted:
+
+update vehicle
+update delivery
+update route
+update ETA
+create audit event
+generate notification
+
+============================================================
+18. INCIDENT COMMAND
+============================================================
+
+Create an incident management system.
+
+Incident types:
+
+Landslide
+Flood
+Road damage
+Bridge damage
+Traffic blockage
+Accident
+Weather hazard
+Infrastructure failure
+Other
+
+Fields:
+
+GPS
+timestamp
+photo
+description
+severity
+road
+district
+
+Lifecycle:
+
+NEW
+ACKNOWLEDGED
+ASSIGNED
+IN PROGRESS
+RESOLVED
+
+Incident creation should trigger:
+
+risk recalculation
+affected route detection
+vehicle impact detection
+delivery impact detection
+alert generation
+
+============================================================
+19. FIELD MODE
+============================================================
+
+This is a critical differentiator.
+
+Build true offline-first functionality.
+
+When offline:
+
+FIELD MODE
+
+should still allow:
+
+• GPS capture
+• photo capture
+• incident creation
+• observation entry
+• cached route information
+• cached forms
+• report queue
+
+Use IndexedDB/local storage.
+
+Show:
+
+OFFLINE
+
+"Reports are stored securely and will sync automatically."
+
+When connectivity returns:
+
+SYNC AUTOMATICALLY
+
+Show sync progress.
+
+============================================================
+20. EMERGENCY COMMAND CENTER
+============================================================
+
+Create a dedicated emergency interface.
+
+Large button:
+
+ACTIVATE EMERGENCY MODE
+
+When activated:
+
+show:
+
+• critical incidents
+• blocked roads
+• emergency corridors
+• critical districts
+• supply shortages
+• stranded vehicles
+• available vehicles
+• safe routes
+• predicted disruptions
+
+Create:
+
+CREATE EMERGENCY MISSION
+
+Inputs:
+
+Mission
+Destination
+Cargo
+Quantity
+Deadline
+Priority
+
+System automatically recommends:
+
+Vehicle
+Route
+Backup route
+ETA
+Risk
+Contingency
+
+============================================================
+21. ALERT SYSTEM
+============================================================
+
+Alerts must be actionable.
+
+Example:
+
+BAD:
+
+"Rainfall detected."
+
+GOOD:
+
+"Rainfall has increased landslide probability on NH-102 to 78%. Two critical medicine deliveries are currently using this corridor."
+
+Actions:
+
+Acknowledge
+Assign
+Escalate
+Resolve
+
+Create an alert history.
+
+============================================================
+22. AI EXPLANATION
+============================================================
+
+Every prediction must have:
+
+Prediction
+Confidence
+Factors
+Impact
+Recommendation
+Alternative
+
+Never show unexplained AI numbers.
+
+============================================================
+23. MULTILINGUAL
+============================================================
+
+Support:
+
+English
+Hindi
+Assamese
+
+Language switching must work.
+
+Build translation architecture properly.
+
+============================================================
+24. ANALYTICS
+============================================================
+
+Create:
+
+Operational Analytics
+
+Charts:
+
+• delivery success
+• average delay
+• route reliability
+• supply shortages
+• incident frequency
+• vehicle utilization
+• district accessibility
+• emergency response time
+
+Add date filters.
+
+Add district filters.
+
+Add export functionality.
+
+============================================================
+25. USER ROLES
+============================================================
+
+Create:
+
+ADMIN
+REGIONAL COMMANDER
+DISTRICT OFFICER
+FIELD OFFICER
+LOGISTICS OPERATOR
+DRIVER
+
+Each role must have relevant permissions.
+
+============================================================
+26. DATABASE
+============================================================
+
+Use PostgreSQL / Supabase if available.
+
+Create tables:
+
+users
+roles
+districts
+roads
+road_segments
+vehicles
+drivers
+deliveries
+supplies
+incidents
+field_reports
+weather_observations
+risk_predictions
+route_options
+alerts
+missions
+audit_logs
+sync_queue
+
+Use proper relationships.
+
+Use timestamps.
+
+Use indexes.
+
+Implement Row Level Security where appropriate.
+
+============================================================
+27. REAL DATA INTEGRATION ARCHITECTURE
+============================================================
+
+Create service interfaces for:
+
+Weather API
+GPS API
+GIS
+Traffic
+Routing
+Government feeds
+Notifications
+Machine learning
+
+For now:
+
+use realistic mock/simulation providers.
+
+Do NOT hardcode the application around fake data.
+
+Make replacing mock providers with real APIs straightforward.
+
+============================================================
+28. REALISTIC DATA
+============================================================
+
+Create realistic simulated NER data.
+
+Minimum:
+
+8 states
+30+ road segments
+40+ vehicles
+30+ incidents
+20+ deliveries
+20+ supply records
+multiple weather observations
+
+Use realistic locations and coordinates.
+
+Never use:
+
+District 1
+Road 1
+Vehicle 1
+
+All simulated data should be labeled:
+
+SIMULATION MODE
+
+============================================================
+29. LIVE SIMULATION
+============================================================
+
+Create:
+
+START LIVE SIMULATION
+
+PAUSE
+
+RESET
+
+During simulation:
+
+• vehicle locations change
+• weather changes
+• risk changes
+• ETAs change
+• alerts appear
+• map updates
+
+The system should feel alive.
+
+============================================================
+30. SECURITY
+============================================================
+
+Implement:
+
+authentication
+role-based authorization
+input validation
+secure API architecture
+audit logging
+environment variables
+no exposed secrets
+
+============================================================
+31. PERFORMANCE
+============================================================
+
+Optimize:
+
+initial load
+map performance
+mobile performance
+database queries
+API calls
+caching
+large datasets
+
+============================================================
+32. ACCESSIBILITY
+============================================================
+
+Follow accessibility best practices.
+
+Use:
+
+ARIA
+keyboard navigation
+high contrast
+large touch targets
+semantic HTML
+clear focus states
+
+Never communicate important information only through color.
+
+============================================================
+33. LANDING PAGE
+============================================================
+
+Create a premium landing page.
+
+Headline:
+
+"One Intelligence Layer for a Connected North-East."
+
+Subheadline:
+
+"Predict disruption. Protect essential supplies. Move smarter."
+
+Show:
+
+8 states
+live logistics
+AI prediction
+route intelligence
+emergency response
+offline field operations
+
+Do NOT make the landing page the main focus.
+
+The application is the product.
+
+============================================================
+34. BRANDING
+============================================================
+
+Brand:
+
+DOR NER
+
+Meaning:
+
+DOR represents a connecting thread/link between:
+
+roads
+people
+vehicles
+districts
+supplies
+authorities
+
+Use a minimal professional logo/wordmark.
+
+============================================================
+35. DEMO MODE
+============================================================
+
+Create a top-level:
+
+DEMO MODE
+
+toggle.
+
+When active:
+
+show a subtle banner:
+
+"DEMO / SIMULATION DATA"
+
+Do not confuse judges into thinking synthetic data is live government data.
+
+============================================================
+36. EMPTY / ERROR / OFFLINE STATES
+============================================================
+
+Every page needs:
+
+loading state
+empty state
+error state
+offline state
+syncing state
+success state
+
+No blank screens.
+
+No dead buttons.
+
+No fake buttons.
+
+============================================================
+37. PROJECT ARCHITECTURE
+============================================================
+
+Use modular architecture.
+
+Suggested:
+
+src/
+  components/
+  pages/
+  features/
+    dashboard/
+    map/
+    routes/
+    fleet/
+    supplies/
+    incidents/
+    predictions/
+    emergency/
+    field/
+    analytics/
+    alerts/
+  services/
+    routing/
+    weather/
+    prediction/
+    fleet/
+    supply/
+  data/
+  hooks/
+  types/
+  utils/
+  lib/
+
+============================================================
+38. IMPLEMENTATION PRIORITY
+============================================================
+
+Do not waste time polishing low-value features before the core works.
+
+Build in this order:
+
+PHASE 1
+Architecture
+Database
+Authentication
+Layout
+
+PHASE 2
+Command Center
+GIS Map
+Realistic data
+
+PHASE 3
+Route Intelligence
+Risk Engine
+Fleet
+
+PHASE 4
+Supply Intelligence
+Incidents
+Alerts
+
+PHASE 5
+Emergency Mode
+What-if simulator
+Vehicle allocation
+
+PHASE 6
+Field Mode
+Offline support
+Multilingual
+
+PHASE 7
+Analytics
+Judge Demo
+
+PHASE 8
+Polish
+Performance
+QA
+
+============================================================
+39. CORE ALGORITHM
+============================================================
+
+Implement a transparent prototype scoring system.
+
+Route risk should consider:
+
+weather risk
+road condition
+landslide probability
+flood probability
+traffic
+historical incidents
+distance
+cargo priority
+
+Vehicle selection should consider:
+
+distance
+capacity
+compatibility
+current route
+risk
+availability
+
+Supply priority should consider:
+
+urgency
+stock remaining
+population impact
+road risk
+deadline
+
+Do not merely randomize these values.
+
+============================================================
+40. JUDGE-FACING IMPACT
+============================================================
+
+Create an "Impact" panel.
+
+Show measurable prototype metrics such as:
+
+Route planning time
+Delivery delay
+Critical delivery protection
+Vehicle utilization
+Emergency response time
+Disruption avoidance
+
+Clearly label these:
+
+"Prototype simulation results"
+
+Allow the metrics to update after a simulation.
+
+============================================================
+41. THE MOST IMPORTANT UX PRINCIPLE
+============================================================
+
+A government officer should be able to answer these questions within seconds:
+
+WHAT IS HAPPENING?
+
+WHAT WILL HAPPEN?
+
+WHAT IS AT RISK?
+
+WHAT SHOULD I DO?
+
+HAS THE ACTION BEEN COMPLETED?
+
+If the UI cannot answer those questions quickly, redesign it.
+
+============================================================
+42. FINAL DEMO FLOW
+============================================================
+
+The final application must support this exact demonstration:
+
+START
+
+↓
+Regional Command Center
+
+↓
+Show normal logistics
+
+↓
+Activate severe rainfall scenario
+
+↓
+AI predicts disruption
+
+↓
+Road becomes high risk
+
+↓
+System identifies affected vehicles
+
+↓
+System identifies critical medicine shipment
+
+↓
+Alternative routes generated
+
+↓
+Safest route recommended
+
+↓
+Best vehicle automatically selected
+
+↓
+Emergency mission created
+
+↓
+Alert sent
+
+↓
+Field officer submits incident
+
+↓
+Incident verified
+
+↓
+Network recalculated
+
+↓
+Vehicle rerouted
+
+↓
+Delivery protected
+
+↓
+CRISIS CONTAINED
+
+Show final impact metrics.
+
+============================================================
+43. FINAL QUALITY STANDARD
+============================================================
+
+Before declaring the application complete:
+
+Run a complete QA pass.
+
+Check:
+
+• every navigation item
+• every button
+• every form
+• route planner
+• map interactions
+• vehicle tracking
+• supply allocation
+• incident reporting
+• emergency mode
+• simulation
+• alerts
+• multilingual switching
+• offline mode
+• responsive layout
+• authentication
+• database operations
+
+Fix all:
+
+TypeScript errors
+runtime errors
+console errors
+broken imports
+broken routes
+UI overflow
+mobile issues
+dead buttons
+
+Do not stop at a visually impressive frontend.
+
+The application must actually work.
+
+============================================================
+44. FINAL INSTRUCTION
+============================================================
+
+START BUILDING NOW.
+
+Do not simply explain the solution.
+
+Do not return a design document instead of the application.
+
+Implement the application.
+
+If a real external API is unavailable:
+
+create a clean mock service with realistic data.
+
+If a feature cannot be fully implemented in the current environment:
+
+implement the best functional version possible and clearly isolate the integration point.
+
+Prioritize functionality over unnecessary visual effects.
+
+The final result should look and behave like a serious operational platform that could be presented to:
+
+• Ministry officials
+• disaster management authorities
+• logistics experts
+• GIS specialists
+• senior engineers
+• Smart India Hackathon judges.
+
+The objective is not to make the most complicated application.
+
+The objective is to make the most convincing solution to SIH26002.
+
+BUILD DOR NER.
