@@ -164,6 +164,38 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/RouteOption"
+  /supply-priorities:
+    get:
+      operationId: listSupplyPriorities
+      tags: [operations]
+      summary: Rank supply movements by operational urgency
+      responses:
+        "200":
+          description: Ranked supply priorities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SupplyPriority"
+  /vehicle-allocation:
+    post:
+      operationId: allocateVehicle
+      tags: [operations]
+      summary: Select the best available vehicle for a mission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VehicleAllocationInput"
+      responses:
+        "200":
+          description: Ranked vehicle allocation recommendation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VehicleAllocation"
   /missions:
     post:
       operationId: createMission
@@ -341,7 +373,7 @@ components:
         stockLevel: { type: number }
     Prediction:
       type: object
-      required: [id, title, corridor, probability, confidence, window, factors, impact, recommendation, alternative, level]
+      required: [id, title, corridor, probability, confidence, window, factors, scoreBreakdown, impact, recommendation, alternative, level]
       properties:
         id: { type: string }
         title: { type: string }
@@ -352,13 +384,16 @@ components:
         factors:
           type: array
           items: { type: string }
+        scoreBreakdown:
+          type: array
+          items: { $ref: "#/components/schemas/FactorContribution" }
         impact: { type: string }
         recommendation: { type: string }
         alternative: { type: string }
         level: { type: string, enum: [low, moderate, high, critical] }
     SupplyRisk:
       type: object
-      required: [district, item, daysRemaining, incomingEta, roadRisk, risk, recommendation]
+      required: [district, item, daysRemaining, incomingEta, roadRisk, risk, priorityScore, priority, factors, recommendation]
       properties:
         district: { type: string }
         item: { type: string }
@@ -366,6 +401,11 @@ components:
         incomingEta: { type: string }
         roadRisk: { type: string }
         risk: { type: string }
+        priorityScore: { type: number }
+        priority: { type: number }
+        factors:
+          type: array
+          items: { $ref: "#/components/schemas/FactorContribution" }
         recommendation: { type: string }
     Activity:
       type: object
@@ -482,7 +522,7 @@ components:
         vehicleType: { type: string }
     RouteOption:
       type: object
-      required: [id, name, recommended, distance, eta, weatherRisk, landslideRisk, floodRisk, traffic, accessibility, fuel, overallRisk, score, explanation]
+      required: [id, name, recommended, distance, eta, weatherRisk, landslideRisk, floodRisk, traffic, accessibility, fuel, overallRisk, score, riskScore, scoreBreakdown, explanation]
       properties:
         id: { type: string }
         name: { type: string }
@@ -497,6 +537,10 @@ components:
         fuel: { type: string }
         overallRisk: { type: string }
         score: { type: number }
+        riskScore: { type: number }
+        scoreBreakdown:
+          type: array
+          items: { $ref: "#/components/schemas/FactorContribution" }
         explanation:
           type: array
           items: { type: string }
@@ -523,6 +567,48 @@ components:
         eta: { type: string }
         risk: { type: string }
         status: { type: string }
+    FactorContribution:
+      type: object
+      required: [factor, value, weight, contribution]
+      properties:
+        factor: { type: string }
+        value: { type: number }
+        weight: { type: number }
+        contribution: { type: number }
+    SupplyPriority:
+      type: object
+      required: [id, district, item, priority, score, explanation, factors]
+      properties:
+        id: { type: string }
+        district: { type: string }
+        item: { type: string }
+        priority: { type: number }
+        score: { type: number }
+        explanation: { type: string }
+        factors:
+          type: array
+          items: { $ref: "#/components/schemas/FactorContribution" }
+    VehicleAllocationInput:
+      type: object
+      required: [destination, cargo, quantity, priority]
+      properties:
+        destination: { type: string }
+        cargo: { type: string }
+        quantity: { type: number }
+        priority: { type: string }
+    VehicleAllocation:
+      type: object
+      required: [vehicleId, score, capacityFit, recommendation, alternative, improvement, factors]
+      properties:
+        vehicleId: { type: string }
+        score: { type: number }
+        capacityFit: { type: number }
+        recommendation: { type: string }
+        alternative: { type: string }
+        improvement: { type: string }
+        factors:
+          type: array
+          items: { $ref: "#/components/schemas/FactorContribution" }
     Analytics:
       type: object
       required: [deliverySuccess, averageDelay, routeReliability, shortages, incidents, utilization, accessibility, responseTime]
